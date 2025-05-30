@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Jayashree Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #3b82f6;
+            --secondary: #1e40af;
+            --dark: #1e293b;
+            --light: #f8fafc;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--light);
+            color: var(--dark);
+        }
+        
+        .nav-link {
+            position: relative;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background-color: var(--primary);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .hero {
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(255, 255, 255, 0) 100%);
+        }
+        
+        .animate-float {
+            animation: float 8s ease-in-out infinite;
+        }
+
+        .animate-float-slow {
+            animation: float-slow 10s ease-in-out infinite;
+        }
+
+        .typing-effect {
+            display: inline-block;
+            white-space: nowrap;
+            overflow: hidden;
+            border-right: 2px solid #2563eb;
+            animation: typing 3s steps(30, end), blink 0.75s step-end infinite;
+        }
+
+        .fade-in-left {
+            opacity: 0;
+            transform: translateX(-50px);
+            animation: fadeInLeft 1.2s ease-out forwards;
+        }
+
+        .fade-in-right {
+            opacity: 0;
+            transform: translateX(50px);
+            animation: fadeInRight 1.2s ease-out forwards;
+        }
+
+        .skill-card {
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+        
+        .skill-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .project-card {
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+        
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .contact-input {
+            transition: all 0.3s ease;
+        }
+        
+        .contact-input:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+        }
+        
+        .animate-in {
+            animation: fadeIn 0.5s ease forwards;
+        }
+        
+        .delay-1 {
+            animation-delay: 0.2s;
+        }
+        
+        .delay-2 {
+            animation-delay: 0.4s;
+        }
+        
+        .delay-3 {
+            animation-delay: 0.6s;
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .hamburger {
+            display: none;
+            cursor: pointer;
+        }
+        
+        @media (max-width: 768px) {
+            .hamburger {
+                display: block;
+            }
+            
+            .nav-links {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 80px);
+                background-color: white;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                transition: left 0.3s ease;
+                z-index: 1000;
+            }
+            
+            .nav-links.active {
+                left: 0;
+            }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        @keyframes float-slow {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+
+        @keyframes blink {
+            50% { border-color: transparent }
+        }
+
+        @keyframes fadeInLeft {
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        @keyframes fadeInRight {
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+    </style>
+</head>
+<body class="overflow-x-hidden">
+    <!-- Navigation -->
+    <nav class="fixed w-full bg-white shadow-sm z-50">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <a href="#" class="text-2xl font-bold text-blue-500">JS </a>
+                
+                <div class="hamburger">
+                    <i class="fas fa-bars text-2xl text-blue-500"></i>
+                </div>
+                
+                <div class="nav-links hidden md:flex space-x-8">
+                    <a href="#home" class="nav-link text-gray-700 hover:text-blue-500">Home</a>
+                    <a href="#about" class="nav-link text-gray-700 hover:text-blue-500">About</a>
+                    <a href="#skills" class="nav-link text-gray-700 hover:text-blue-500">Skills</a>
+                    <a href="#projects" class="nav-link text-gray-700 hover:text-blue-500">Projects</a>
+                    <a href="#resume" class="nav-link text-gray-700 hover:text-blue-500">Resume</a>
+                    <a href="#contact" class="nav-link text-gray-700 hover:text-blue-500">Contact</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+<section id="home" class="hero min-h-screen flex items-center relative overflow-hidden bg-gradient-to-br from-blue-100 via-white to-indigo-100">
+  <!-- Animated Blobs Background -->
+  <div class="absolute top-0 left-0 w-full h-full -z-10">
+    <div class="absolute w-72 h-72 bg-blue-300 rounded-full opacity-20 blur-3xl top-10 left-10 animate-float" style="animation-delay: 0s;"></div>
+    <div class="absolute w-96 h-96 bg-indigo-300 rounded-full opacity-20 blur-3xl bottom-0 right-20 animate-float" style="animation-delay: 4s;"></div>
+  </div>
+
+  <div class="container mx-auto px-6 py-20">
+    <div class="flex flex-col md:flex-row items-center">
+      <!-- Text Section -->
+      <div class="md:w-1/2 animate-in fade-in-left">
+        <h1 class="text-4xl md:text-6xl font-extrabold text-gray-800 mb-4">
+          <span class="text-blue-500 typing-effect">Hi, I’m Jayashree</span>
+        </h1>
+        <h2 class="text-2xl md:text-3xl font-semibold text-gray-600 mb-6">
+          Data-Driven Storyteller | Data Science | Machine Learning Enthusiast
+        </h2>
+
+        <div class="flex space-x-4">
+          <a href="#contact" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-medium transition duration-300 shadow-lg hover:shadow-xl">Hire Me</a>
+          <a href="#projects" class="border border-blue-600 text-blue-600 hover:bg-blue-100 px-6 py-3 rounded-lg font-medium transition duration-300 shadow hover:shadow-lg">View Work</a>
+        </div>
+      </div>
+
+      <!-- Image Section -->
+     <div class="md:w-1/2 mt-10 md:mt-0 relative animate-in fade-in-right delay-1 ml-4">
+  <div class="relative max-w-md mx-auto transform animate-float-slow group transition-all duration-500 hover:translate-x-2">
+    <div class="absolute -inset-4 bg-gradient-to-br from-blue-300 to-indigo-300 rounded-2xl opacity-30 blur-xl"></div>
+    
+    <img src="data.jpg"
+         alt="Data Science"
+         class="relative rounded-2xl shadow-2xl border-4 border-white w-full transition duration-500 group-hover:scale-105 group-hover:shadow-blue-400">
+         
+    <!-- Arrow Overlay -->
+    <div class="absolute bottom-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+      <i class="fas fa-arrow-right text-blue-600 text-2xl animate-pulse"></i>
+    </div>
+  </div>
+</div>
+  </div>
+</section>
+
+
+    <!-- About Section -->
+<section id="about" class="py-20 bg-white">
+    <div class="container mx-auto px-6">
+        <h2 class="text-3xl font-bold text-center mb-16">About <span class="text-blue-500">Me</span></h2>
+        
+        <div class="flex flex-col md:flex-row items-center">
+            <div class="md:w-1/3 mb-10 md:mb-0 animate-in">
+                <div class="relative max-w-xs mx-auto">
+                    <div class="absolute -inset-4 bg-blue-100 rounded-full opacity-75 blur-lg"></div>
+                    <img src="jayashree.jpeg" alt="Jayashree Ramesh Reddy" class="relative rounded-full shadow-xl w-full">
+                </div>
+            </div>
+            
+            <div class="md:w-2/3 md:pl-16 animate-in delay-1">
+                <h3 class="text-2xl font-semibold mb-4">Who am I?</h3>
+                <p class="text-gray-600 mb-6">
+                    I’m <strong>Jayashree Ramesh Reddy</strong>, a Master’s student in Data Science at the University of Memphis, skilled in transforming complex data into actionable insights. I leverage powerful tools like Python, SQL, Scikit-learn, TensorFlow, and PyTorch to build and deploy intelligent models, while using Power BI, Tableau, and Matplotlib to create compelling visual stories.
+                </p>
+                <p class="text-gray-600 mb-6">
+                    With experience in classification, clustering, time series forecasting, and deep learning, I focus on bridging business goals with cutting-edge technology. I’m passionate about delivering scalable models and clear insights that drive decision-making and innovation.
+                </p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                    <div>
+                        <p class="font-medium"><span class="text-blue-500">Name:</span> Jayashree Ramesh Reddy</p>
+                        <p class="font-medium"><span class="text-blue-500">Email:</span> jrmshrdd@memphis.edu</p>
+                    </div>
+                    <div>
+                        <p class="font-medium"><span class="text-blue-500">From:</span> Memphis, United States</p>
+                       
+                    </div>
+                </div>
+                <div class="flex flex-wrap gap-4">
+                    <a href="https://github.com/jrmshrdd" class="bg-blue-500 hover:bg-blue-600 text-white px-6 py-2 rounded-lg font-medium transition duration-300 flex items-center">
+                        <i class="fab fa-github mr-2"></i> GitHub
+                    </a>
+                    <a href="https://linkedin.com/in/jrmshrdd" class="bg-blue-500 hover:bg-blue-600 text-white px-6 py-2 rounded-lg font-medium transition duration-300 flex items-center">
+                        <i class="fab fa-linkedin mr-2"></i> LinkedIn
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+    <!-- Skills Section -->
+<section id="skills" class="py-20 bg-gray-50">
+    <div class="container mx-auto px-6">
+        <h2 class="text-3xl font-bold text-center mb-4">My <span class="text-blue-500">Skills</span></h2>
+        <p class="text-gray-600 text-center max-w-2xl mx-auto mb-16">Here are the tools, technologies, and concepts I work with regularly in data science and machine learning.</p>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Programming Languages -->
+            <div class="skill-card bg-white p-6 rounded-xl animate-in">
+                <div class="text-blue-500 text-3xl mb-4"><i class="fas fa-code"></i></div>
+                <h3 class="text-xl font-semibold mb-2">Programming Languages</h3>
+                <p class="text-gray-600">Python (Pandas, NumPy, Scikit-learn, TensorFlow, PyTorch), SQL, R, CSS, HTML</p>
+            </div>
+
+            <!-- Data Analysis & Manipulation -->
+            <div class="skill-card bg-white p-6 rounded-xl animate-in delay-1">
+                <div class="text-blue-500 text-3xl mb-4"><i class="fas fa-database"></i></div>
+                <h3 class="text-xl font-semibold mb-2">Data Analysis & Manipulation</h3>
+                <p class="text-gray-600">Data Cleaning, Data Wrangling, Feature Engineering, Data Modeling</p>
+            </div>
+
+            <!-- Data Visualization -->
+            <div class="skill-card bg-white p-6 rounded-xl animate-in delay-2">
+                <div class="text-blue-500 text-3xl mb-4"><i class="fas fa-chart-bar"></i></div>
+                <h3 class="text-xl font-semibold mb-2">Data Visualization</h3>
+                <p class="text-gray-600">Power BI, Tableau, Matplotlib, Seaborn, Excel (Pivot Tables, VLOOKUP)</p>
+            </div>
+
+            <!-- Machine Learning & AI -->
+            <div class="skill-card bg-white p-6 rounded-xl animate-in">
+                <div class="text-blue-500 text-3xl mb-4"><i class="fas fa-robot"></i></div>
+                <h3 class="text-xl font-semibold mb-2">Machine Learning & AI</h3>
+                <p class="text-gray-600">Supervised & Unsupervised Learning, Neural Networks (CNNs, RNNs, Transformers)</p>
+            </div>
+
+            <!-- Big Data & Cloud Technologies -->
+            <div class="skill-card bg-white p-6 rounded-xl animate-in delay-1">
+                <div class="text-blue-500 text-3xl mb-4"><i class="fas fa-cloud"></i></div>
+                <h3 class="text-xl font-semibold mb-2">Big Data & Cloud</h3>
+                <p class="text-gray-600">Apache Spark, Snowflake, AWS (S3, Lambda, SageMaker, Redshift)</p>
+            </div>
+
+            <!-- Database Management -->
+            <div class="skill-card bg-white p-6 rounded-xl animate-in delay-2">
+                <div class="text-blue-500 text-3xl mb-4"><i class="fas fa-server"></i></div>
+                <h3 class="text-xl font-semibold mb-2">Database Management</h3>
+                <p class="text-gray-600">MySQL, PostgreSQL</p>
+            </div>
+
+            <!-- Soft Skills -->
+            <div class="skill-card bg-white p-6 rounded-xl animate-in delay-3">
+                <div class="text-blue-500 text-3xl mb-4"><i class="fas fa-user-check"></i></div>
+                <h3 class="text-xl font-semibold mb-2">Soft Skills</h3>
+                <p class="text-gray-600">Critical Thinking, Communication, Stakeholder Engagement, Time Management, System Design Thinking</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+    <!-- Projects Section -->
+<section id="projects" class="py-20 bg-white">
+    <div class="container mx-auto px-6">
+        <h2 class="text-3xl font-bold text-center mb-4">My <span class="text-blue-500">Projects</span></h2>
+        <p class="text-gray-600 text-center max-w-2xl mx-auto mb-16">Here are some of my data science and machine learning projects that reflect my problem-solving and analytical capabilities.</p>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Project 1 -->
+            <div class="project-card bg-gray-50 rounded-xl overflow-hidden animate-in">
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold mb-2">Android Malware Prediction</h3>
+                    <p class="text-gray-600 mb-4">Built a Random Forest model to detect malware using permissions and API usage from over 15,000 apps with 92% accuracy.</p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="bg-blue-100 text-blue-800 text-xs px-3 py-1 rounded-full">Python</span>
+                        <span class="bg-blue-100 text-blue-800 text-xs px-3 py-1 rounded-full">Random Forest</span>
+                    </div>
+                    <div class="flex space-x-3">
+                        <a href="https://github.com/jrmshrdd/Malware-detection-In-apps" target="_blank" class="text-blue-500 hover:text-blue-700 font-medium">Source Code</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 2 -->
+            <div class="project-card bg-gray-50 rounded-xl overflow-hidden animate-in delay-1">
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold mb-2">Mental Health Burnout Prediction</h3>
+                    <p class="text-gray-600 mb-4">Used employee survey data to train a Random Forest model (86% accuracy) and built a real-time Streamlit app with SHAP insights.</p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="bg-blue-100 text-blue-800 text-xs px-3 py-1 rounded-full">Streamlit</span>
+                        <span class="bg-blue-100 text-blue-800 text-xs px-3 py-1 rounded-full">SHAP</span>
+                        <span class="bg-blue-100 text-blue-800 text-xs px-3 py-1 rounded-full">Random Forest</span>
+                    </div>
+                    <div class="flex space-x-3">
+                        <a href="https://github.com/jrmshrdd/Mental-Health-Burnout-Risk-Prediction-Using-Workplace-Data" target="_blank" class="text-blue-500 hover:text-blue-700 font-medium">Source Code</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 3 -->
+            <div class="project-card bg-gray-50 rounded-xl overflow-hidden animate-in delay-2">
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold mb-2">Satellite Image Classification</h3>
+                    <p class="text-gray-600 mb-4">Applied deep learning models (CNN) for multiclass satellite image classification to identify terrain categories with high accuracy.</p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="bg-blue-100 text-blue-800 text-xs px-3 py-1 rounded-full">CNN</span>
+                        <span class="bg-blue-100 text-blue-800 text-xs px-3 py-1 rounded-full">Deep Learning</span>
+                    </div>
+                    <div class="flex space-x-3">
+                        <a href="https://github.com/jrmshrdd/Satellite-Image-Classification-Using-Deep-Learning" target="_blank" class="text-blue-500 hover:text-blue-700 font-medium">Source Code</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 4 -->
+            <div class="project-card bg-gray-50 rounded-xl overflow-hidden animate-in">
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold mb-2">Influencer Dataset Analysis</h3>
+                    <p class="text-gray-600 mb-4">Exploratory data analysis of social media influencers using Python to derive audience engagement and brand-fit insights.</p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="bg-blue-100 text-blue-800 text-xs px-3 py-1 rounded-full">EDA</span>
+                        <span class="bg-blue-100 text-blue-800 text-xs px-3 py-1 rounded-full">Matplotlib</span>
+                        <span class="bg-blue-100 text-blue-800 text-xs px-3 py-1 rounded-full">Seaborn</span>
+                    </div>
+                    <div class="flex space-x-3">
+                        <a href="https://github.com/jrmshrdd/Influencer-Dataset-Analysis-with-Python" target="_blank" class="text-blue-500 hover:text-blue-700 font-medium">Source Code</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 5 -->
+            <div class="project-card bg-gray-50 rounded-xl overflow-hidden animate-in delay-1">
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold mb-2">Forecasting Municipal Debt</h3>
+                    <p class="text-gray-600 mb-4">Implemented time series forecasting with machine learning models to predict financial trends in municipal debt data.</p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="bg-blue-100 text-blue-800 text-xs px-3 py-1 rounded-full">Forecasting</span>
+                        <span class="bg-blue-100 text-blue-800 text-xs px-3 py-1 rounded-full">Regression</span>
+                    </div>
+                    <div class="flex space-x-3">
+                        <a href="https://github.com/jrmshrdd/Forecasting-Municipal-Debt-with-Machine-Learning" target="_blank" class="text-blue-500 hover:text-blue-700 font-medium">Source Code</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="text-center mt-12 animate-in delay-3">
+            <a href="https://github.com/jrmshrdd" class="inline-block bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded-lg font-medium transition duration-300" target="_blank">View All Projects</a>
+        </div>
+    </div>
+</section>
+
+
+    <!-- Resume Section -->
+<section id="resume" class="py-20 bg-gray-50">
+    <div class="container mx-auto px-6">
+        <h2 class="text-3xl font-bold text-center mb-4">My <span class="text-blue-500">Resume</span></h2>
+        <p class="text-gray-600 text-center max-w-2xl mx-auto mb-16">My professional journey and educational background.</p>
+        
+        <div class="flex flex-col md:flex-row gap-12">
+            <!-- Experience -->
+            <div class="md:w-1/2 animate-in">
+                <h3 class="text-2xl font-semibold mb-6 flex items-center">
+                    <i class="fas fa-briefcase mr-3 text-blue-500"></i> Experience
+                </h3>
+                
+                <div class="relative pl-8 pb-8 border-l-2 border-blue-200">
+                    <div class="absolute w-4 h-4 bg-blue-500 rounded-full -left-2 top-1"></div>
+                    <div class="mb-8">
+                        <h4 class="text-xl font-semibold">Data Science Intern</h4>
+                        <p class="text-blue-500 font-medium mb-2">Artoo IT Solutions Pvt Ltd • Aug 2023 – Nov 2023, India</p>
+                        <ul class="text-gray-600 list-disc pl-5">
+                            <li>Optimized ML models for customer segmentation and credit risk assessment, boosting loan approval accuracy by 15%.</li>
+                            <li>Built a credit risk prediction system using Random Forest and XGBoost, achieving 89% classification accuracy.</li>
+                            <li>Automated preprocessing pipelines in Python, reducing processing time by 30%.</li>
+                            <li>Developed customer segmentation with K-Means/DBSCAN to improve marketing conversion by 15%.</li>
+                            <li>Created dashboards and ETL workflows with Power BI & Airflow, increasing reporting efficiency by 20%.</li>
+                        </ul>
+                    </div>
+
+                    <div class="absolute w-4 h-4 bg-blue-500 rounded-full -left-2 top-1"></div>
+                    <div>
+                        <h4 class="text-xl font-semibold">Data & Automation Intern</h4>
+                        <p class="text-blue-500 font-medium mb-2">Johnson Controls • Jan 2023 – Jul 2023, India</p>
+                        <ul class="text-gray-600 list-disc pl-5">
+                            <li>Built Power BI dashboards that improved business insights and system uptime by 30%.</li>
+                            <li>Created Power Apps to digitize employee recognition and internal training, reaching 200+ employees.</li>
+                            <li>Streamlined IT workflows with Power Automate, reducing manual tasks by 40%.</li>
+                            <li>Enhanced SharePoint usability and security, increasing accessibility by 50%.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Education -->
+            <div class="md:w-1/2 animate-in delay-1">
+                <h3 class="text-2xl font-semibold mb-6 flex items-center">
+                    <i class="fas fa-graduation-cap mr-3 text-blue-500"></i> Education
+                </h3>
+
+                <div class="relative pl-8 pb-8 border-l-2 border-blue-200">
+                    <div class="absolute w-4 h-4 bg-blue-500 rounded-full -left-2 top-1"></div>
+                    <div class="mb-8">
+                        <h4 class="text-xl font-semibold">Master of Science in Data Science</h4>
+                        <p class="text-blue-500 font-medium mb-2">University of Memphis • Memphis, TN • 2025 • GPA: 3.39</p>
+                        <p class="text-gray-600">Currently a Social Media Intern leveraging Excel and Power BI to analyze audience data. Also a Yoga Instructor at the university, promoting wellness and balance.</p>
+                    </div>
+
+                    <div class="absolute w-4 h-4 bg-blue-500 rounded-full -left-2 top-1"></div>
+                    <div>
+                        <h4 class="text-xl font-semibold">Bachelor of Science in Information Science & Engineering</h4>
+                        <p class="text-blue-500 font-medium mb-2">Don Bosco Institute of Technology • Bengaluru, India • 2023 • GPA: 3.4</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Download Resume -->
+        <div class="text-center mt-12 animate-in delay-2">
+            <a href="Jayashree.pdf" class="inline-block bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded-lg font-medium transition duration-300" target="_blank">
+                <i class="fas fa-download mr-2"></i> Download Full Resume
+            </a>
+        </div>
+    </div>
+</section>
+
+
+    <!-- Contact Section -->
+<section id="contact" class="py-20 bg-white">
+    <div class="container mx-auto px-6">
+        <h2 class="text-3xl font-bold text-center mb-4">Get In <span class="text-blue-500">Touch</span></h2>
+        <p class="text-gray-600 text-center max-w-2xl mx-auto mb-16">Have a project in mind or want to discuss potential opportunities? Feel free to reach out!</p>
+
+        <div class="flex flex-col md:flex-row gap-12">
+            <!-- Contact Form -->
+            <div class="md:w-1/2 animate-in">
+                <form class="space-y-6">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label for="name" class="block text-gray-700 font-medium mb-2">Your Name</label>
+                            <input type="text" id="name" class="contact-input w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        </div>
+                        <div>
+                            <label for="email" class="block text-gray-700 font-medium mb-2">Your Email</label>
+                            <input type="email" id="email" class="contact-input w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        </div>
+                    </div>
+                    <div>
+                        <label for="subject" class="block text-gray-700 font-medium mb-2">Subject</label>
+                        <input type="text" id="subject" class="contact-input w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    </div>
+                    <div>
+                        <label for="message" class="block text-gray-700 font-medium mb-2">Message</label>
+                        <textarea id="message" rows="5" class="contact-input w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
+                    </div>
+                    <button type="submit" class="bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded-lg font-medium transition duration-300 w-full">Send Message</button>
+                </form>
+            </div>
+
+            <!-- Contact Info -->
+            <div class="md:w-1/2 animate-in delay-1">
+                <div class="bg-gray-50 p-8 rounded-xl h-full">
+                    <h3 class="text-2xl font-semibold mb-6">Contact Information</h3>
+
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <div class="bg-blue-100 p-3 rounded-full mr-4">
+                                <i class="fas fa-map-marker-alt text-blue-500"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold">Location</h4>
+                                <p class="text-gray-600">Memphis, United States</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start">
+                            <div class="bg-blue-100 p-3 rounded-full mr-4">
+                                <i class="fas fa-envelope text-blue-500"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold">Email</h4>
+                                <p class="text-gray-600">jrmshrdd@memphis.edu</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start">
+                            <div class="bg-blue-100 p-3 rounded-full mr-4">
+                                <i class="fas fa-phone-alt text-blue-500"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold">Phone</h4>
+                                <p class="text-gray-600">9011230022</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-8">
+                        <h4 class="font-semibold mb-4">Follow Me</h4>
+                        <div class="flex space-x-4">
+                            <a href="https://github.com/jrmshrdd" target="_blank" class="bg-blue-500 hover:bg-blue-600 text-white w-10 h-10 rounded-full flex items-center justify-center">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <a href="https://linkedin.com/in/jrmshrdd" target="_blank" class="bg-blue-500 hover:bg-blue-600 text-white w-10 h-10 rounded-full flex items-center justify-center">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+    <!-- Footer -->
+<footer class="bg-gray-900 text-white py-12">
+    <div class="container mx-auto px-6">
+        <div class="flex flex-col md:flex-row justify-between items-center">
+            <div class="mb-6 md:mb-0">
+                <a href="#home" class="text-2xl font-bold text-blue-400">Jayashree</a>
+                <p class="text-gray-400 mt-2">Creating data-driven solutions that make a difference.</p>
+            </div>
+
+            <div class="flex flex-col items-center md:items-end">
+                <div class="flex space-x-6 mb-4">
+                    <a href="#home" class="text-gray-400 hover:text-white">Home</a>
+                    <a href="#about" class="text-gray-400 hover:text-white">About</a>
+                    <a href="#projects" class="text-gray-400 hover:text-white">Projects</a>
+                    <a href="#contact" class="text-gray-400 hover:text-white">Contact</a>
+                </div>
+                <p class="text-gray-400">© 2025 Jayashree Ramesh Reddy. All rights reserved.</p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="fixed bottom-8 right-8 bg-blue-500 hover:bg-blue-600 text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg transition-opacity duration-300 opacity-0 invisible">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script>
+        // Mobile menu toggle
+        document.querySelector('.hamburger').addEventListener('click', function() {
+            document.querySelector('.nav-links').classList.toggle('hidden');
+            document.querySelector('.nav-links').classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', function() {
+                if (window.innerWidth <= 768) {
+                    document.querySelector('.nav-links').classList.add('hidden');
+                    document.querySelector('.nav-links').classList.remove('active');
+                }
+            });
+        });
+
+        // Back to top button
+        const backToTopButton = document.getElementById('backToTop');
+        
+        window.addEventListener('scroll', function() {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.remove('opacity-0', 'invisible');
+                backToTopButton.classList.add('opacity-100', 'visible');
+            } else {
+                backToTopButton.classList.remove('opacity-100', 'visible');
+                backToTopButton.classList.add('opacity-0', 'invisible');
+            }
+        });
+        
+        backToTopButton.addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-in');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.animate-in').forEach(element => {
+            observer.observe(element);
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
