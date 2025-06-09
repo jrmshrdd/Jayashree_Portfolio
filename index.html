@@ -6,6 +6,8 @@
     <title> Jayashree Portfolio</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.cdnfonts.com/css/mona-sans" rel="stylesheet" />
+    
     <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   
@@ -188,7 +190,7 @@
         place-self: start;
         transition: 150ms ease-in-out;
       }
-
+      
 
       @keyframes marquee {
         100% {
@@ -203,7 +205,7 @@
 
     
         
-        .project-card {
+        /* .project-card {
             transition: all 0.3s ease;
             box-shadow: 0 px 4px rgba(0, 0, 0, 0.05);
         }
@@ -211,8 +213,104 @@
         .project-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 10px 15px rgba(0, 0, 0, 0.5);
-        }
+        } */
         
+         @import url("https://fonts.cdnfonts.com/css/mona-sans");
+    * {
+      box-sizing: border-box;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+      scroll-behavior: smooth;
+    }
+ 
+    #projects {
+  background: linear-gradient(180deg, #343434 0%, #252525 100%);
+  color: white;
+}
+    .card {
+      position: relative;
+      width: 100%;
+      max-width: 320px;
+      height: 550px;
+      border-radius: 16px;
+      background: linear-gradient(180deg, #292929aa 0%, #191919cc 50%);
+      backdrop-filter: blur(4px);
+      box-shadow: inset 0 2px 2px 0 #e7c4a088, inset 0 -2px 2px 0 #0003;
+      color: #ccc;
+      text-shadow: 1px 1px 3px #333a;
+      padding: 24px 24px 24px 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: end;
+      overflow: hidden;
+    }
+    .card h2 {
+      font-size: 1.1em;
+      margin: 8px 0;
+    }
+    .card p {
+      font-size: 0.9em;
+      font-weight: 800;
+      color: #aaa;
+      margin: 2px 0;
+    }
+    .card .button {
+      width: fit-content;
+      border-radius: 100px;
+      padding: 8px 36px;
+      margin-top: 12px;
+      background: #fff2;
+      box-shadow: 0 0 0 1px #fff3,
+                  inset 120px 0 100px -100px #000c,
+                  0 0 0 0 #fff1;
+      transition: box-shadow 0.4s ease-in-out;
+      cursor: pointer;
+    }
+    .card .button:hover {
+      box-shadow: 0 0 0 1px #fff3,
+                  inset 200px 0px 100px -100px #000a,
+                  -4px 0 8px 2px #fff2;
+    }
+    .card img {
+      position: absolute;
+      top: 20px;
+      left: 0; right: 0;
+      width: 90%;
+      margin: auto;
+      object-fit: contain;
+      user-select: none;
+      pointer-events: none;
+    }
+    .accents {
+      user-select: none;
+      pointer-events: none;
+      position: absolute;
+      left: 0; right: 0;
+      top: 5%;
+      z-index: -1;
+    }
+    .accents .acc-card {
+      width: 90%; max-width: 1100px; height: 600px;
+      background: #eee1;
+      opacity: 0.8;
+      margin: auto;
+      border-radius: 24px;
+      box-shadow: inset 0 2px 2px 0 #e0c9b266, inset 0 -2px 2px 0 #0004;
+      backdrop-filter: blur(4px);
+      transform-origin: 20% 80%;
+      transition: all 0.1s linear;
+    }
+    .accents .acc-card:nth-child(1) { animation: wobble 18s ease-in-out infinite; }
+    .accents .acc-card:nth-child(2) { animation: wobble 22s ease-in-out -6s infinite reverse; }
+    .accents .acc-card:nth-child(3) { animation: wobble 26s ease-in-out -18s infinite; }
+
+    @keyframes wobble {
+      0%   { transform: translateX(10px) translateY(20px) rotate(-3deg) scale(1); }
+      20%  { transform: translateX(-44px) translateY(-8px) rotate(6deg) scale(1.02); }
+      60%  { transform: translateX(32px) translateY(18px) rotate(-8deg) scale(1); }
+      80%  { transform: translateX(-42px) translateY(-22px) rotate(12deg) scale(0.94); }
+      100% { transform: translateX(10px) translateY(20px) rotate(-3deg) scale(1); }
+    }
         .contact-input {
             transition: all 0.3s ease;
         }
@@ -344,7 +442,7 @@
         <h1 class="text-4xl md:text-6xl font-extrabold text-gray-800 mb-4">
           <span class="text-white typing-effect">Hi, I’m Jayashree</span>
         </h1>
-        <h2 class="text-2xl md:text-3xl font-semibold text-gray-600 mb-6">
+        <h2 class="text-2xl md:text-3xl font-semibold text-white mb-6">
           Data-Driven Storyteller | Data Science | Machine Learning Enthusiast
         </h2>
 
@@ -480,102 +578,118 @@
 </section>
 
     <!-- Projects Section -->
-<section id="projects" class="py-20 bg-white">
-    <div class="container mx-auto px-6">
-        <h2 class="text-3xl font-bold text-center mb-4">My <span class="text-blue-500">Projects</span></h2>
-        <p class="text-gray-600 text-center max-w-2xl mx-auto mb-16">Here are some of my data science and machine learning projects that reflect my problem-solving and analytical capabilities.</p>
+<section id="projects" class="py-20 bg-gradient-to-b from-gray-800 to-gray-900 text-white relative overflow-hidden">
+  <!-- Animated Accent Background -->
+  <div class="accents">
+    <div class="acc-card"></div>
+    <div class="acc-card"></div>
+    <div class="acc-card"></div>
+  </div>
+
+  <div class="container mx-auto px-6">
+    <h2 class="text-3xl font-bold text-center mb-4">My <span class="text-blue-500">Projects</span></h2>
+    <p class="text-gray-300 text-center max-w-2xl mx-auto mb-16">
+      Here are some of my data science and machine learning projects that reflect my problem-solving and analytical capabilities.
+    </p>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 justify-items-center">
+      <!-- Project 1 -->
+      <div class="card">
+        <img 
+  src="https://certo-software.imgix.net/app/uploads/2024/05/Google-Unveils-Advanced-AI-Malware-Detection-for-Android.jpg?w=2000&h=&auto=format" 
+  alt="Android Malware Icon"
+  style="width: 250px; height: 250px; object-fit: cover; border-radius: 12px;"
+/>
+        <h2>Android Malware Prediction</h2>
+        <p>Built a Random Forest model to detect malware using permissions and API usage from over 15,000 apps with 92% accuracy.</p>
+        <div class="flex flex-wrap gap-2 mb-4">
+          <span class="bg-blue-100 text-blue-800 text-xs px-3 py-1 rounded-full">Python</span>
+          <span class="bg-blue-100 text-blue-800 text-xs px-3 py-1 rounded-full">Random Forest</span>
+        </div>
+        <div class="button">
+          <a href="https://github.com/jrmshrdd/Malware-detection-In-apps" target="_blank" class="text-white">Source Code</a>
+        </div>
+      </div>
+
+      <!-- Project 2 -->
+      <div class="card">
+        <img src="https://consumer.healthday.com/media-library/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpbWFnZSI6Imh0dHBzOi8vYXNzZXRzLnJibC5tcy8zMzYwODA0OS9vcmlnaW4uanBnIiwiZXhwaXJlc19hdCI6MTY5NTEzODgzN30.0Ug8Zfa29kbkL5NHc8JSJNcm4Omxh04UbK4OTTHT894/image.jpg?width=1200&height=800&coordinates=0%2C189%2C0%2C189" alt="Mental Health Icon" 
+        style="width: 250px; height: 250px; object-fit: cover; border-radius: 12px;"/>
         
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <!-- Project 1 -->
-            <div class="project-card bg-gray-50 rounded-xl overflow-hidden animate-in">
-                <div class="p-6">
-                    <h3 class="text-xl font-semibold mb-2">Android Malware Prediction</h3>
-                    <p class="text-gray-600 mb-4">Built a Random Forest model to detect malware using permissions and API usage from over 15,000 apps with 92% accuracy.</p>
-                    <div class="flex flex-wrap gap-2 mb-4">
-                        <span class="bg-blue-100 text-blue-800 text-xs px-3 py-1 rounded-full">Python</span>
-                        <span class="bg-blue-100 text-blue-800 text-xs px-3 py-1 rounded-full">Random Forest</span>
-                    </div>
-                    <div class="flex space-x-3">
-                        <a href="https://github.com/jrmshrdd/Malware-detection-In-apps" target="_blank" class="text-blue-500 hover:text-blue-700 font-medium">Source Code</a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Project 2 -->
-            <div class="project-card bg-gray-50 rounded-xl overflow-hidden animate-in delay-1">
-                <div class="p-6">
-                    <h3 class="text-xl font-semibold mb-2">Mental Health Burnout Prediction</h3>
-                    <p class="text-gray-600 mb-4">Used employee survey data to train a Random Forest model (86% accuracy) and built a real-time Streamlit app with SHAP insights.</p>
-                    <div class="flex flex-wrap gap-2 mb-4">
-                        <span class="bg-blue-100 text-blue-800 text-xs px-3 py-1 rounded-full">Streamlit</span>
-                        <span class="bg-blue-100 text-blue-800 text-xs px-3 py-1 rounded-full">SHAP</span>
-                        <span class="bg-blue-100 text-blue-800 text-xs px-3 py-1 rounded-full">Random Forest</span>
-                    </div>
-                    <div class="flex space-x-3">
-                        <a href="https://github.com/jrmshrdd/Mental-Health-Burnout-Risk-Prediction-Using-Workplace-Data" target="_blank" class="text-blue-500 hover:text-blue-700 font-medium">Source Code</a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Project 3 -->
-            <div class="project-card bg-gray-50 rounded-xl overflow-hidden animate-in delay-2">
-                <div class="p-6">
-                    <h3 class="text-xl font-semibold mb-2">Satellite Image Classification</h3>
-                    <p class="text-gray-600 mb-4">Applied deep learning models (CNN) for multiclass satellite image classification to identify terrain categories with high accuracy.</p>
-                    <div class="flex flex-wrap gap-2 mb-4">
-                        <span class="bg-blue-100 text-blue-800 text-xs px-3 py-1 rounded-full">CNN</span>
-                        <span class="bg-blue-100 text-blue-800 text-xs px-3 py-1 rounded-full">Deep Learning</span>
-                    </div>
-                    <div class="flex space-x-3">
-                        <a href="https://github.com/jrmshrdd/Satellite-Image-Classification-Using-Deep-Learning" target="_blank" class="text-blue-500 hover:text-blue-700 font-medium">Source Code</a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Project 4 -->
-            <div class="project-card bg-gray-50 rounded-xl overflow-hidden animate-in">
-                <div class="p-6">
-                    <h3 class="text-xl font-semibold mb-2">Influencer Dataset Analysis</h3>
-                    <p class="text-gray-600 mb-4">Exploratory data analysis of social media influencers using Python to derive audience engagement and brand-fit insights.</p>
-                    <div class="flex flex-wrap gap-2 mb-4">
-                        <span class="bg-blue-100 text-blue-800 text-xs px-3 py-1 rounded-full">EDA</span>
-                        <span class="bg-blue-100 text-blue-800 text-xs px-3 py-1 rounded-full">Matplotlib</span>
-                        <span class="bg-blue-100 text-blue-800 text-xs px-3 py-1 rounded-full">Seaborn</span>
-                    </div>
-                    <div class="flex space-x-3">
-                        <a href="https://github.com/jrmshrdd/Influencer-Dataset-Analysis-with-Python" target="_blank" class="text-blue-500 hover:text-blue-700 font-medium">Source Code</a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Project 5 -->
-            <div class="project-card bg-gray-50 rounded-xl overflow-hidden animate-in delay-1">
-                <div class="p-6">
-                    <h3 class="text-xl font-semibold mb-2">Forecasting Municipal Debt</h3>
-                    <p class="text-gray-600 mb-4">Implemented time series forecasting with machine learning models to predict financial trends in municipal debt data.</p>
-                    <div class="flex flex-wrap gap-2 mb-4">
-                        <span class="bg-blue-100 text-blue-800 text-xs px-3 py-1 rounded-full">Forecasting</span>
-                        <span class="bg-blue-100 text-blue-800 text-xs px-3 py-1 rounded-full">Regression</span>
-                    </div>
-                    <div class="flex space-x-3">
-                        <a href="https://github.com/jrmshrdd/Forecasting-Municipal-Debt-with-Machine-Learning" target="_blank" class="text-blue-500 hover:text-blue-700 font-medium">Source Code</a>
-                    </div>
-                </div>
-            </div>
+        <h2>Mental Health Burnout Prediction</h2>
+        <p>Trained Random Forest (86% accuracy) on employee survey data; built Streamlit app with real-time SHAP insights.</p>
+        <div class="flex flex-wrap gap-2 mb-4">
+          <!-- <span class="bg-blue-100 text-blue-800 text-xs px-3 py-1 rounded-full">Streamlit</span> -->
+          <span class="bg-blue-100 text-blue-800 text-xs px-3 py-1 rounded-full">SHAP</span>
+          <span class="bg-blue-100 text-blue-800 text-xs px-3 py-1 rounded-full">Random Forest</span>
         </div>
-
-        <div class="text-center mt-12 animate-in delay-3">
-            <a href="https://github.com/jrmshrdd" class="inline-block bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded-lg font-medium transition duration-300" target="_blank">View All Projects</a>
+        <div class="button">
+          <a href="https://github.com/jrmshrdd/Mental-Health-Burnout-Risk-Prediction-Using-Workplace-Data" target="_blank" class="text-white">Source Code</a>
         </div>
+      </div>
+
+      <!-- Project 3 -->
+      <div class="card">
+        <img src="https://techcrunch.com/wp-content/uploads/2024/03/GettyImages-1591476529.jpg?w=1024" alt="Satellite Icon" 
+        style="width: 250px; height: 250px; object-fit: cover; border-radius: 12px;"/>
+        <h2>Satellite Image Classification</h2>
+        <p>Applied deep learning models (CNN) for multiclass satellite image classification to identify terrain categories with high accuracy.</p>
+        <div class="flex flex-wrap gap-2 mb-4">
+          <span class="bg-blue-100 text-blue-800 text-xs px-3 py-1 rounded-full">CNN</span>
+          <span class="bg-blue-100 text-blue-800 text-xs px-3 py-1 rounded-full">Deep Learning</span>
+        </div>
+        <div class="button">
+          <a href="https://github.com/jrmshrdd/Satellite-Image-Classification-Using-Deep-Learning" target="_blank" class="text-white">Source Code</a>
+        </div>
+      </div>
+
+      <!-- Project 4 -->
+      <div class="card">
+        <img src="https://miro.medium.com/v2/resize:fit:1024/0*9Ch3uSqhCUGlx7ai.png" alt="Influencer Icon" 
+        style="width: 250px; height: 250px; object-fit: cover; border-radius: 12px;"/>
+        <h2>Influencer Dataset Analysis</h2>
+        <p>Exploratory data analysis of social media influencers using Python to derive audience engagement and brand-fit insights.</p>
+        <div class="flex flex-wrap gap-2 mb-4">
+          <span class="bg-blue-100 text-blue-800 text-xs px-3 py-1 rounded-full">EDA</span>
+          <span class="bg-blue-100 text-blue-800 text-xs px-3 py-1 rounded-full">Matplotlib</span>
+          <span class="bg-blue-100 text-blue-800 text-xs px-3 py-1 rounded-full">Seaborn</span>
+        </div>
+        <div class="button">
+          <a href="https://github.com/jrmshrdd/Influencer-Dataset-Analysis-with-Python" target="_blank" class="text-white">Source Code</a>
+        </div>
+      </div>
+
+      <!-- Project 5 -->
+      <div class="card">
+        <img src="https://cdn.prod.website-files.com/66e0280a57d803aa8d4c591f/67b348d2323de82182aa95f0_forecasting.png" alt="Forecast Icon"
+        style="width: 250px; height: 250px; object-fit: cover; border-radius: 12px;"" />
+        <h2>Forecasting Municipal Debt</h2>
+        <p>Implemented time series forecasting with machine learning models to predict financial trends in municipal debt data.</p>
+        <div class="flex flex-wrap gap-2 mb-4">
+          <span class="bg-blue-100 text-blue-800 text-xs px-3 py-1 rounded-full">Forecasting</span>
+          <span class="bg-blue-100 text-blue-800 text-xs px-3 py-1 rounded-full">Regression</span>
+        </div>
+        <div class="button">
+          <a href="https://github.com/jrmshrdd/Forecasting-Municipal-Debt-with-Machine-Learning" target="_blank" class="text-white">Source Code</a>
+        </div>
+      </div>
     </div>
-</section>
 
+    <!-- View All Projects Button -->
+    <div class="text-center mt-12">
+      <a href="https://github.com/jrmshrdd" target="_blank"
+        class="inline-block bg-black hover:bg-blue-600 text-white px-6 py-3 rounded-lg font-medium transition duration-300">
+        View All Projects
+      </a>
+    </div>
+  </div>
+</section>
 
     <!-- Resume Section -->
 <section id="resume" class="py-20 bg-gray-50">
     <div class="container mx-auto px-6">
         <h2 class="text-3xl font-bold text-center mb-4">My <span class="text-blue-500">Resume</span></h2>
-        <p class="text-gray-600 text-center max-w-2xl mx-auto mb-16">My professional journey and educational background.</p>
+        <p class="text-black text-center max-w-2xl mx-auto mb-16">My professional journey and educational background.</p>
         
         <div class="flex flex-col md:flex-row gap-12">
             <!-- Experience -->
@@ -589,7 +703,7 @@
                     <div class="mb-8">
                         <h4 class="text-xl font-semibold">Data Science Intern</h4>
                         <p class="text-blue-500 font-medium mb-2">Artoo IT Solutions Pvt Ltd • Aug 2023 – Nov 2023, India</p>
-                        <ul class="text-gray-600 list-disc pl-5">
+                        <ul class="text-black list-disc pl-5">
                             <li>Optimized ML models for customer segmentation and credit risk assessment, boosting loan approval accuracy by 15%.</li>
                             <li>Built a credit risk prediction system using Random Forest and XGBoost, achieving 89% classification accuracy.</li>
                             <li>Automated preprocessing pipelines in Python, reducing processing time by 30%.</li>
@@ -602,7 +716,7 @@
                     <div>
                         <h4 class="text-xl font-semibold">Data & Automation Intern</h4>
                         <p class="text-blue-500 font-medium mb-2">Johnson Controls • Jan 2023 – Jul 2023, India</p>
-                        <ul class="text-gray-600 list-disc pl-5">
+                        <ul class="text-black list-disc pl-5">
                             <li>Built Power BI dashboards that improved business insights and system uptime by 30%.</li>
                             <li>Created Power Apps to digitize employee recognition and internal training, reaching 200+ employees.</li>
                             <li>Streamlined IT workflows with Power Automate, reducing manual tasks by 40%.</li>
@@ -623,7 +737,7 @@
                     <div class="mb-8">
                         <h4 class="text-xl font-semibold">Master of Science in Data Science</h4>
                         <p class="text-blue-500 font-medium mb-2">University of Memphis • Memphis, TN • 2025 • GPA: 3.39</p>
-                        <p class="text-gray-600">Currently a Social Media Intern leveraging Excel and Power BI to analyze audience data. Also a Yoga Instructor at the university, promoting wellness and balance.</p>
+                        <p class="black">Currently a Social Media Intern leveraging Excel and Power BI to analyze audience data. Also a Yoga Instructor at the university, promoting wellness and balance.</p>
                     </div>
 
                     <div class="absolute w-4 h-4 bg-blue-500 rounded-full -left-2 top-1"></div>
@@ -649,7 +763,7 @@
 <section id="contact" class="py-20 bg-white">
     <div class="container mx-auto px-6">
         <h2 class="text-3xl font-bold text-center mb-4">Get In <span class="text-blue-500">Touch</span></h2>
-        <p class="text-gray-600 text-center max-w-2xl mx-auto mb-16">Have a project in mind or want to discuss potential opportunities? Feel free to reach out!</p>
+        <p class="text-black text-center max-w-2xl mx-auto mb-16">Have a project in mind or want to discuss potential opportunities? Feel free to reach out!</p>
 
         <div class="flex flex-col md:flex-row gap-12">
             <!-- Contact Form -->
@@ -679,7 +793,7 @@
 
             <!-- Contact Info -->
             <div class="md:w-1/2 animate-in delay-1">
-                <div class="bg-gray-50 p-8 rounded-xl h-full">
+                <div class="bg-gray-900 text-white p-8 rounded-xl h-full">
                     <h3 class="text-2xl font-semibold mb-6">Contact Information</h3>
 
                     <div class="space-y-6">
@@ -688,8 +802,8 @@
                                 <i class="fas fa-map-marker-alt text-blue-500"></i>
                             </div>
                             <div>
-                                <h4 class="font-semibold">Location</h4>
-                                <p class="text-gray-600">Memphis, United States</p>
+                                <h4 class="text-white font-semibold">Location</h4>
+                                <p class="text-white">Memphis, United States</p>
                             </div>
                         </div>
 
@@ -699,7 +813,7 @@
                             </div>
                             <div>
                                 <h4 class="font-semibold">Email</h4>
-                                <p class="text-gray-600">jrmshrdd@memphis.edu</p>
+                                <p class="text-white">jrmshrdd@memphis.edu</p>
                             </div>
                         </div>
 
@@ -709,7 +823,7 @@
                             </div>
                             <div>
                                 <h4 class="font-semibold">Phone</h4>
-                                <p class="text-gray-600">9011230022</p>
+                                <p class="text-white">9011230022</p>
                             </div>
                         </div>
                     </div>
