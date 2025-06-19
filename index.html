@@ -92,116 +92,48 @@
             transform: translateY(-5px);
             box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
         } */
-          @layer base, demo;
+          .skills-grid {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  max-width: 1200px;
+  margin: auto;
+  padding: 1rem;
+}
 
-    @layer demo {
-      .carousel {
-        --items: 6;
-        --carousel-duration: 40s;
-        @media (width > 600px) {
-          --carousel-duration: 30s;
-        }
-        --carousel-width: min(80vw, 1200px);
-        --carousel-item-width: 280px;
-        --carousel-item-height: 450px;
-        --carousel-item-gap: 2rem;
-        --clr-cta: rgb(0, 132, 209);
+.skill-card {
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  padding: 1rem;
+  background-color: #f9f9f9;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+  transition: transform 0.2s ease;
+}
 
-        position: relative;
-        width: var(--carousel-width);
-        height: var(--carousel-item-height);
-        overflow: clip;
-      }
+.skill-card:hover {
+  transform: translateY(-5px);
+}
 
-      /* .carousel[mask] {
-        mask-image: linear-gradient(to right, transparent, black 20% 20%, transparent);
-      } */
-       
+.skill-card img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+}
 
-      .carousel[reverse] > article {
-        animation-direction: reverse;
-      }
+.skill-card h3 {
+  color: rgb(0, 132, 209);
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
 
-      .carousel:hover > article {
-        animation-play-state: paused;
-      }
+.skill-card p {
+  font-size: 1rem;
+  color: #333;
+}
 
-      .carousel > article {
-        position: absolute;
-        top: 0;
-        left: calc(100% + var(--carousel-item-gap));
-        width: var(--carousel-item-width);
-        height: var(--carousel-item-height);
-        display: grid;
-        grid-template-rows: 200px auto 1fr auto;
-        gap: 0.25rem;
-        border: 1px solid light-dark(rgba(0 0 0 / 0.25), rgba(255 255 255 / 0.15));
-        padding-block-end: 1rem;
-        border-radius: 10px;
-        background: light-dark(white, rgba(255 255 255 / 0.05));
-        color: light-dark(rgb(49, 65, 88), white);
-        will-change: transform;
-        animation-name: marquee;
-        animation-duration: var(--carousel-duration);
-        animation-timing-function: linear;
-        animation-iteration-count: infinite;
-        animation-delay: calc(var(--carousel-duration) / var(--items) * 1 * var(--i) * -1);
-        
-      }
-
-      .carousel > article:nth-child(1) { --i: 0; }
-      .carousel > article:nth-child(2) { --i: 1; }
-      .carousel > article:nth-child(3) { --i: 2; }
-      .carousel > article:nth-child(4) { --i: 3; }
-      .carousel > article:nth-child(5) { --i: 4; }
-      .carousel > article:nth-child(6) { --i: 5; }
-
-      .carousel img {
-        width: 100%;
-        height:100%;
-        object-fit: cover;
-        border-radius: 10px 10px 0 0;
-      }
-
-      .carousel > article > *:not(img) {
-        padding: 0 1rem;
-      }
-
-      .carousel > article > div {
-        grid-row: span 2;
-        display: grid;
-        grid-template-rows: subgrid;
-        font-size: 0.8rem;
-      }
-
-      .carousel > article p {
-        font-size: 1.2rem;
-        font-weight: 600;
-        margin: 0;
-      }
-
-      .carousel > article a {
-        text-decoration: none;
-        text-transform: lowercase;
-        border: 1px solid var(--clr-cta);
-        color: light-dark(var(--clr-cta), white);
-        border-radius: 3px;
-        padding: 0.25rem 0.5rem;
-        place-self: start;
-        transition: 150ms ease-in-out;
-      }
-      
-
-      @keyframes marquee {
-        100% {
-          transform: translateX(
-            calc(
-              (var(--items) * (var(--carousel-item-width) + var(--carousel-item-gap))) * -1
-            )
-          );
-        }
-      }
-    }
 
     
         
@@ -516,64 +448,51 @@
 </section>
 
 
- <!-- Skills Section with Carousel -->
-<section id="skills">
-  <div class="text-center mb-10">
+ <!-- Skills Section -->
+<section id="skills" style="padding: 2rem 1rem; text-align: center;">
+  <div class="mb-10">
     <h2 class="text-3xl font-bold">My <span style="color: rgb(0,132,209);">Skills</span></h2>
-    <p style="max-width: 700px; margin: auto;">
+    <p style="max-width: 700px; margin: 1rem auto;">
       A data-driven problem solver with expertise in analytics, machine learning, and business intelligence tools.
     </p>
   </div>
 
-  <div class="carousel m-auto" mask >
-    <article>
-      <img src="language.png" alt="Python" />
-      <h2 style="font-size: 1.6rem; font-weight: 800 ; color: rgba(12, 99, 161, 0.945);">Programming Languages</h2>
-      <div>
-        <p>Python, SQL, Java, C++, R, HTML, CSS</p>
-      </div>
-    </article>
+  <div class="skills-grid">
+    <div class="skill-card">
+      <img src="language.png" alt="Languages">
+      <h3>Programming Languages</h3>
+      <p>Python, SQL, Java, C++, R, HTML, CSS</p>
+    </div>
 
-    <article>
-      <img src="tools.webp" alt="Tableau" />
-      <h2 style="font-size: 1.6rem; font-weight: 800; color: rgba(12, 99, 161, 0.945);">Tools & Libraries</h2>
-      <div>
-        <p>NumPy, Pandas, Matplotlib, Seaborn, Scikit-learn, TensorFlow, Power BI</p>
-      </div>
+    <div class="skill-card">
+      <img src="tools.webp" alt="Tools">
+      <h3>Tools & Libraries</h3>
+      <p>NumPy, Pandas, Matplotlib, Seaborn, Scikit-learn, Power BI</p>
+    </div>
 
-    </article>
+    <div class="skill-card">
+      <img src="machine.jpeg" alt="Machine Learning">
+      <h3>Machine Learning</h3>
+      <p>Supervised/Unsupervised Learning, Deep Learning, Transformers</p>
+    </div>
 
-    <article>
-      <img src="machine.jpeg" alt="AI" />
-      <h2 style="font-size: 1.6rem; font-weight: 800; color: rgba(12, 99, 161, 0.945);">Machine Learning</h2>
-      <div>
-        <p>Supervised/Unsupervised Learning, Deep Learning, Transformers</p>
-      </div>
-    </article>
+    <div class="skill-card">
+      <img src="analysis.jpeg" alt="Data Analysis">
+      <h3>Data Analysis</h3>
+      <p>EDA, Data Cleaning, Statistical Modeling, Hypothesis Testing</p>
+    </div>
 
-    <article>
-      <img src="analysis.jpeg" alt="Data Analysis" />
-      <h2 style="font-size: 1.6rem; font-weight: 800; color: rgba(12, 99, 161, 0.945);">Data Analysis</h2>
-      <div>
-        <p>EDA, Data Cleaning, Statistical Modeling, Hypothesis Testing</p>
-      </div>
-    </article>
+    <div class="skill-card">
+      <img src="database.jpg" alt="Databases">
+      <h3>Databases & Cloud</h3>
+      <p>MySQL, PostgreSQL, MongoDB, AWS, Azure, Databricks</p>
+    </div>
 
-    <article>
-      <img src="database.jpg" alt="Databases" />
-      <h2 style="font-size: 1.6rem; font-weight: 800; color: rgba(12, 99, 161, 0.945);">Databases & Cloud</h2>
-      <div>
-        <p>MySQL, PostgreSQL, MongoDB, AWS, Azure, Databricks</p>
-      </div>
-    </article>
-
-    <article>
-      <img src="business.avif" alt="Communication" />
-      <h2 style="font-size: 1.6rem; font-weight: 800; color: rgba(12, 99, 161, 0.945);"></h2style>Business & Communication</h2>
-      <div>
-        <p>Stakeholder Management, Agile, Storytelling with Data</p>
-      </div>
-    </article>
+    <div class="skill-card">
+      <img src="business.avif" alt="Business">
+      <h3>Business & Communication</h3>
+      <p>Stakeholder Management, Agile, Storytelling with Data</p>
+    </div>
   </div>
 </section>
 
