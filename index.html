@@ -82,16 +82,6 @@
             transform: translateX(50px);
             animation: fadeInRight 1.2s ease-out forwards;
         }
-
-        /* .skill-card {
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-        }
-        
-        .skill-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
-        } */
           .skills-grid {
   display: grid;
   gap: 2rem;
@@ -111,7 +101,12 @@
 }
 
 .skill-card:hover {
+  background-color: #06161e; /* slightly darker blue */
   transform: translateY(-5px);
+  
+}
+.skill-card:hover p {
+  color: #ffffff; /* dark blue or any color you prefer */
 }
 
 .skill-card img {
