@@ -111,15 +111,19 @@
 
 
 .skill-card:hover {
-  background-color: #06161e; /* slightly darker blue */
-  transform: translateY(-5px);
-  
-}
-.skill-card:hover {
+  background-color: #ffffff;              /* keep card white */
   transform: translateY(-6px);
-  box-shadow: 0 8px 18px rgba(0,0,0,0.18);
+  box-shadow: 0 8px 18px rgba(0,0,0,0.18); /* stronger shadow only */
 }
 
+/* Optional – keep text colors consistent on hover */
+.skill-card:hover h3 {
+  color: rgb(0, 132, 209);
+}
+
+.skill-card:hover p {
+  color: #333;
+}
 
 .skill-card img {
   width: 100%;
@@ -913,6 +917,7 @@
 
 </body>
 </html>
+
 
 
 
