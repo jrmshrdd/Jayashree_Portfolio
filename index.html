@@ -85,24 +85,29 @@
 
 .skills-grid {
   display: grid;
-  gap: 2rem;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  max-width: 1200px;
-  margin: auto;
-  padding: 1rem;
-}
-
-
-.skills-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr); /* FORCE 3 per row */
-  gap: 2rem;
-  justify-items: center; /* centers each card */
-  align-items: start;
+  grid-template-columns: repeat(3, 1fr); 
+  gap: 2.5rem;
+  justify-items: center;
   max-width: 1200px;
   margin: 0 auto;
   padding: 1rem;
 }
+
+
+.skill-card {
+  width: 320px;                   /* Fixed clean card width */
+  background: #ffffff;            /* White card */
+  border-radius: 16px;            /* Rounded corners */
+  padding: 16px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1); /* Soft shadow */
+  border: 1px solid rgba(255,255,255,0.6); /* White transparent border */
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;            /* Center all content */
+  text-align: center;
+}
+
 
 
 .skill-card:hover {
@@ -110,18 +115,20 @@
   transform: translateY(-5px);
   
 }
-.skill-card:hover p {
-  color: #ffffff; /* dark blue or any color you prefer */
+.skill-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 18px rgba(0,0,0,0.18);
 }
 
 
 .skill-card img {
   width: 100%;
-  height: 160px;
+  height: 180px;
   object-fit: cover;
-  border-radius: 10px;
+  border-radius: 12px;
   margin-bottom: 1rem;
 }
+
 
 .skill-card h3 {
   color: rgb(0, 132, 209);
@@ -906,6 +913,7 @@
 
 </body>
 </html>
+
 
 
 
