@@ -642,213 +642,155 @@
         
         <div class="flex flex-col md:flex-row gap-12">
             <!-- Experience -->
-<div class="md:w-1/2 animate-in">
-    <h3 class="text-2xl font-semibold mb-6 flex items-center">
-        <i class="fas fa-briefcase mr-3 text-blue-500"></i> Experience
-    </h3>
-    
-    <div class="relative pl-8 pb-8 border-l-2 border-blue-200">
-        <div class="absolute w-4 h-4 bg-blue-500 rounded-full -left-2 top-1"></div>
-        <div class="mb-8">
-            <h4 class="text-xl font-semibold">Data Scientist </h4>
+<section id="resume" class="py-12">
+  <div class="container mx-auto px-4">
+
+    <!-- ✅ FLEX WRAPPER: puts Experience + Education parallel -->
+    <div class="flex flex-col md:flex-row gap-12">
+
+      <!-- ================= EXPERIENCE (LEFT) ================= -->
+      <div class="md:w-1/2 animate-in">
+        <h3 class="text-2xl font-semibold mb-6 flex items-center">
+          <i class="fas fa-briefcase mr-3 text-blue-500"></i> Experience
+        </h3>
+
+        <div class="relative pl-8 pb-8 border-l-2 border-blue-200">
+          <div class="absolute w-4 h-4 bg-blue-500 rounded-full -left-2 top-1"></div>
+
+          <!-- Deloitte -->
+          <div class="mb-10">
+            <h4 class="text-xl font-semibold">Data Scientist</h4>
             <p class="text-black font-semibold">Deloitte • Feb 2020 – Dec 2023</p>
 
-           <div class="relative">
+            <ul class="text-black list-disc pl-5 space-y-3 mt-3">
+              <li>
+                Led <span class="font-semibold">end-to-end data science projects</span> from problem definition and data acquisition through
+                <span class="font-semibold">model development</span>, <span class="font-semibold">validation</span>, and
+                <span class="font-semibold">deployment</span>, collaborating closely with business stakeholders.
+              </li>
 
-    <!-- 🔹 Deloitte Experience -->
-    <div class="relative pl-6">
+              <li>
+                Designed and implemented <span class="font-semibold">supervised and unsupervised ML models</span> (regression, classification, clustering) using
+                <span class="font-semibold">Python</span>, <span class="font-semibold">Pandas</span>, <span class="font-semibold">NumPy</span>, and
+                <span class="font-semibold">Scikit-Learn</span> for forecasting, risk scoring, and customer behavior analysis.
+              </li>
 
-        <h4 class="text-xl font-semibold">Data Scientist</h4>
-        <p class="text-black font-semibold">Deloitte • Feb 2020 – Dec 2023</p>
-
-        <ul class="text-black list-disc pl-5 space-y-3 mt-3">
-
-            <li>
-                Led <span class="font-semibold">end-to-end data science projects</span>
-                from problem definition and data acquisition through
-                <span class="font-semibold">model development</span>,
-                <span class="font-semibold">validation</span>, and
-                <span class="font-semibold">deployment</span>,
-                collaborating closely with business stakeholders.
-            </li>
-
-            <li>
-                Designed and implemented
-                <span class="font-semibold">supervised and unsupervised ML models</span>
-                (regression, classification, clustering) using
-                <span class="font-semibold">Python</span>,
-                <span class="font-semibold">Pandas</span>,
-                <span class="font-semibold">NumPy</span>, and
-                <span class="font-semibold">Scikit-Learn</span>
-                for forecasting, risk scoring, and customer behavior analysis.
-            </li>
-
-            <li>
-                Built end-to-end ML pipelines using
-                <span class="font-semibold">Random Forest</span>,
-                <span class="font-semibold">XGBoost</span>, and
-                <span class="font-semibold">LightGBM</span>,
-                improving robustness through
-                <span class="font-semibold">feature engineering</span>
-                and
+              <li>
+                Built end-to-end ML pipelines using <span class="font-semibold">Random Forest</span>, <span class="font-semibold">XGBoost</span>, and
+                <span class="font-semibold">LightGBM</span>, improving robustness through <span class="font-semibold">feature engineering</span> and
                 <span class="font-semibold">SHAP-based explainability</span>.
-            </li>
+              </li>
 
-            <li>
-                Conducted
-                <span class="font-semibold">statistical analysis</span>,
-                <span class="font-semibold">hypothesis testing</span>, and
-                <span class="font-semibold">A/B experimentation</span>
-                to evaluate business initiatives and product changes.
-            </li>
+              <li>
+                Conducted <span class="font-semibold">statistical analysis</span>, <span class="font-semibold">hypothesis testing</span>, and
+                <span class="font-semibold">A/B experimentation</span> to evaluate business initiatives and product changes.
+              </li>
 
-            <li>
-                Built scalable
-                <span class="font-semibold">data pipelines</span>
-                using
-                <span class="font-semibold">SQL</span> and
-                <span class="font-semibold">Python</span>,
-                integrating transformed data into
-                <span class="font-semibold">Snowflake</span>
-                and Airflow-managed workflows.
-            </li>
+              <li>
+                Built scalable <span class="font-semibold">data pipelines</span> using <span class="font-semibold">SQL</span> and
+                <span class="font-semibold">Python</span>, integrating transformed data into <span class="font-semibold">Snowflake</span> and Airflow-managed workflows.
+              </li>
 
-            <li>
-                Evaluated model performance using
-                <span class="font-semibold">ROC-AUC</span>,
-                <span class="font-semibold">precision-recall</span>,
-                <span class="font-semibold">RMSE</span>, and
-                <span class="font-semibold">MAE</span>,
-                applying
-                <span class="font-semibold">cross-validation</span>
-                and
-                <span class="font-semibold">model drift monitoring</span>
-                post-deployment.
-            </li>
+              <li>
+                Evaluated model performance using <span class="font-semibold">ROC-AUC</span>, <span class="font-semibold">precision-recall</span>,
+                <span class="font-semibold">RMSE</span>, and <span class="font-semibold">MAE</span>, applying
+                <span class="font-semibold">cross-validation</span> and <span class="font-semibold">model drift monitoring</span> post-deployment.
+              </li>
 
-            <li>
-                Developed
-                <span class="font-semibold">executive-level dashboards</span>
-                in
-                <span class="font-semibold">Power BI</span> and
-                <span class="font-semibold">Tableau</span>,
-                translating analytical outputs into actionable business insights.
-            </li>
+              <li>
+                Developed <span class="font-semibold">executive-level dashboards</span> in <span class="font-semibold">Power BI</span> and
+                <span class="font-semibold">Tableau</span>, translating analytical outputs into actionable business insights.
+              </li>
 
-            <li>
-                Communicated findings through
-                <span class="font-semibold">data storytelling</span>,
-                clearly explaining assumptions, limitations, and
-                <span class="font-semibold">business impact</span>
-                to both technical and non-technical stakeholders.
-            </li>
+              <li>
+                Communicated findings through <span class="font-semibold">data storytelling</span>, clearly explaining assumptions, limitations, and
+                <span class="font-semibold">business impact</span> to both technical and non-technical stakeholders.
+              </li>
+            </ul>
+          </div>
 
-        </ul>
-    </div>
+          <!-- Tech Neon -->
+          <div>
+            <h4 class="text-xl font-semibold">Associate Data Analyst</h4>
+            <p class="text-black font-semibold">Tech Neon Solutions Pvt Ltd • May 2019 – Jul 2020</p>
 
-    <!-- 🔹 Tech Neon Experience -->
-    <div class="relative pl-6 mt-8">
+            <ul class="text-black list-disc pl-5 space-y-3 mt-3">
+              <li>
+                Performed <span class="font-semibold">exploratory data analysis (EDA)</span> using <span class="font-semibold">SQL</span>,
+                <span class="font-semibold">Excel</span>, and <span class="font-semibold">Python</span> to uncover trends, anomalies, and key business drivers.
+              </li>
 
-        <h4 class="text-xl font-semibold">Associate Data Analyst</h4>
-        <p class="text-black font-semibold">Tech Neon Solutions Pvt Ltd • May 2019 – Jul 2020</p>
+              <li>
+                Developed <span class="font-semibold">complex SQL queries</span> including multi-table joins, aggregations, and
+                <span class="font-semibold">window functions</span> to generate accurate operational and management reports.
+              </li>
 
-        <ul class="text-black list-disc pl-5 space-y-3 mt-3">
+              <li>
+                Built and automated <span class="font-semibold">KPI dashboards</span> and recurring reports, improving visibility into business performance.
+              </li>
 
-            <li>
-                Performed
-                <span class="font-semibold">exploratory data analysis (EDA)</span>
-                using
-                <span class="font-semibold">SQL</span>,
-                <span class="font-semibold">Excel</span>, and
-                <span class="font-semibold">Python</span>
-                to uncover trends, anomalies, and key business drivers.
-            </li>
+              <li>
+                Conducted <span class="font-semibold">data cleaning</span>, <span class="font-semibold">validation</span>, and
+                <span class="font-semibold">reconciliation</span> to ensure high-quality, reliable datasets.
+              </li>
 
-            <li>
-                Developed
-                <span class="font-semibold">complex SQL queries</span>
-                including multi-table joins, aggregations, and
-                <span class="font-semibold">window functions</span>
-                to generate accurate operational and management reports.
-            </li>
+              <li>
+                Collaborated with <span class="font-semibold">senior analysts</span> and stakeholders to deliver
+                <span class="font-semibold">client-ready insights</span> aligned with business objectives.
+              </li>
+            </ul>
+          </div>
 
-            <li>
-                Built and automated
-                <span class="font-semibold">KPI dashboards</span>
-                and recurring reports, improving visibility into business performance.
-            </li>
+        </div>
+      </div>
 
-            <li>
-                Conducted
-                <span class="font-semibold">data cleaning</span>,
-                <span class="font-semibold">validation</span>, and
-                <span class="font-semibold">reconciliation</span>
-                to ensure high-quality, reliable datasets.
-            </li>
+      <!-- ================= EDUCATION (RIGHT) ================= -->
+      <div class="md:w-1/2 animate-in delay-1">
+        <h3 class="text-2xl font-semibold mb-6 flex items-center">
+          <i class="fas fa-graduation-cap mr-3 text-blue-500"></i> Education
+        </h3>
 
-            <li>
-                Collaborated with
-                <span class="font-semibold">senior analysts</span>
-                and stakeholders to deliver
-                <span class="font-semibold">client-ready insights</span>
-                aligned with business objectives.
-            </li>
+        <div class="relative pl-8 pb-8 border-l-2 border-blue-200">
 
-        </ul>
-    </div>
-
-</div>
-
-<!-- Education -->
-<div class="md:w-1/2 animate-in delay-1">
-    <h3 class="text-2xl font-semibold mb-6 flex items-center">
-        <i class="fas fa-graduation-cap mr-3 text-blue-500"></i> Education
-    </h3>
-
-    <div class="relative pl-8 pb-8 border-l-2 border-blue-200">
-
-        <!-- Master's Section -->
-        <div class="mb-8">
+          <!-- Master's -->
+          <div class="mb-8">
             <h4 class="text-xl font-semibold">Master of Science in Data Science</h4>
+            <p class="font-bold mb-2">University of Memphis • GPA 3.5 • Memphis, TN • Dec 2025</p>
 
-            <p class="font-bold mb-2">University of Memphis • GPA- 3.5 • Memphis, TN • Dec 2025</p>
-
-            <!-- Coursework -->
             <p class="text-black mb-2">
-                <span class="font-semibold">Coursework:</span>  
-                Machine Learning, Data Mining, Fundamentals of Data Science,  
-                Advanced Statistical Learning, Database Systems, Data Visualization
+              <span class="font-semibold">Coursework:</span>
+              Machine Learning, Data Mining, Fundamentals of Data Science,
+              Advanced Statistical Learning, Database Systems, Data Visualization
             </p>
 
-            <!-- Social Media Intern Section -->
-            <h5 class="font-semibold mt-3">Social Media Intern • University of Memphis • Jan 2025 - Jun 2025 </h5>
-            <ul class="list-disc pl-5 text-black">
-                <li>Analyzed audience engagement data using Excel and Power BI to drive strategic content decisions.</li>
-                <li>Developed dashboards to visualize follower growth and post performance.</li>
-                <li>Conducted exploratory data analysis to uncover user behavior and campaign effectiveness.</li>
+            <h5 class="font-semibold mt-3">Social Media Intern • University of Memphis • Jan 2025 – Jun 2025</h5>
+            <ul class="list-disc pl-5 text-black space-y-2 mt-2">
+              <li>Analyzed audience engagement data using Excel and Power BI to drive strategic content decisions.</li>
+              <li>Developed dashboards to visualize follower growth and post performance.</li>
+              <li>Conducted exploratory data analysis to uncover user behavior and campaign effectiveness.</li>
             </ul>
-        </div>
+          </div>
 
-        <!-- Bachelor's Section -->
-        <div>
+          <!-- Bachelor's -->
+          <div>
             <h4 class="text-xl font-semibold">Bachelor of Science in Information Science & Engineering</h4>
-
             <p class="font-bold mb-2">Don Bosco Institute of Technology • Bengaluru, India</p>
 
-            <!-- Coursework -->
             <p class="text-black">
-                <span class="font-semibold">Coursework:</span>  
-                Probability & Statistics, Linear Algebra, Database Management Systems,  
-                Data Warehousing, Artificial Intelligence, Neural Networks, Big Data Analytics
+              <span class="font-semibold">Coursework:</span>
+              Probability & Statistics, Linear Algebra, Database Management Systems,
+              Data Warehousing, Artificial Intelligence, Neural Networks, Big Data Analytics
             </p>
+          </div>
+
         </div>
-    </div>
-</div>
+      </div>
 
+    </div> <!-- ✅ closes flex wrapper -->
 
-</div> <!-- closes flex row (Experience + Education) -->
-</div> <!-- closes .container for resume -->
-</section> <!-- closes Resume section -->
+  </div> <!-- closes container -->
+</section>
+
 
     <!-- Contact Section -->
 <section id="contact" class="py-20 bg-white">
@@ -1056,6 +998,7 @@
 
 </body>
 </html>
+
 
 
 
